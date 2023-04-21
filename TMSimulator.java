@@ -9,6 +9,11 @@ public class TMSimulator {
     private String inputString;
     private int currState;
     private LinkedList<Integer> tape;
+    private Map<Transition, Operation> transitions = new HashMap<>();
+    public static void main(String[] args) {
+        TMSimulator simulator = new TMSimulator(args[0]);
+        simulator.run();
+    }
 
     public TMSimulator(String inputFilePath) {
         try {
@@ -64,11 +69,6 @@ public class TMSimulator {
         System.out.println();
     }
 
-    public static void main(String[] args) {
-        TMSimulator simulator = new TMSimulator(args[0]);
-        simulator.run();
-    }
-
     private static class Transition {
         private int currState;
         private int inputSymbol;
@@ -104,5 +104,5 @@ public class TMSimulator {
         }
     }
 
-    private Map<Transition, Operation> transitions = new HashMap<>();
+
 }
